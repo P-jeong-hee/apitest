@@ -1,17 +1,14 @@
 package com.sparta.apitest.controller;
 
 import com.sparta.apitest.dto.FoodRequestDto;
-import com.sparta.apitest.model.Food;
 import com.sparta.apitest.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-public class  FoodController {
+@RestController
+public class FoodController {
 
     private final FoodService foodService;
 
@@ -20,13 +17,16 @@ public class  FoodController {
         this.foodService = foodService;
     }
 
+    // 음식 등록 API
     @PostMapping("/restaurant/{restaurantId}/food/register")
-    public Food registerFood (FoodRequestDto foodRequestDto) {
-        return foodService.registerFood(foodRequestDto);
+    public void registerFood(@RequestBody List<FoodRequestDto> foodRequestDtos, @PathVariable Long restaurantId) {
+        foodService.registerFood(foodRequestDtos,restaurantId);
     }
 
+    // 메뉴판 조회 API
     @GetMapping("/restaurant/{restaurantId}/foods")
-    public List<Food> getAllFood() {
-        return foodService.getAllFood();
+    public List<FoodRequestDto> getAllFoods(@PathVariable Long restaurantId) {
+        return foodService.getAllFoods(restaurantId);
     }
+
 }
