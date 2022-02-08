@@ -1,18 +1,23 @@
 package com.sparta.apitest.model;
 
 import com.sparta.apitest.dto.FoodRequestDto;
-import com.sparta.apitest.repository.FoodRepository;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@NoArgsConstructor
+@Getter
+@Entity
 public class Food {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name="Restaurant_Id", nullable = false)
+    Restaurant restaurant;
 
     @Column(nullable = false)
     private String name;
@@ -20,8 +25,11 @@ public class Food {
     @Column(nullable = false)
     private int price;
 
-    public Food (FoodRequestDto foodRequestDto) {
-        this.name = foodRequestDto.getName;
-        this.price = foodRequestDto.getPrice;
+    public Food(FoodRequestDto foodRequestDto) {
+        this.restaurant = foodRequestDto.getRestaurant();
+        this.name = foodRequestDto.getName();
+        this.price = foodRequestDto.getPrice();
     }
+
+
 }
