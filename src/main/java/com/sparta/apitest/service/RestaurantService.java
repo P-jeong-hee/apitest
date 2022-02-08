@@ -4,6 +4,7 @@ package com.sparta.apitest.service;
 import com.sparta.apitest.dto.RestaurantRequestDto;
 import com.sparta.apitest.model.Restaurant;
 import com.sparta.apitest.repository.RestaurantRepository;
+import com.sparta.apitest.valid.RestaurantValid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

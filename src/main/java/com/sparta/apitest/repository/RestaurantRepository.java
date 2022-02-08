@@ -1,6 +1,5 @@
 package com.sparta.apitest.repository;
 
-
 import com.sparta.apitest.model.Restaurant;
 import org.springframework.data.jpa.repository.JpaRepository;
 

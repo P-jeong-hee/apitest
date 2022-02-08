@@ -18,6 +18,7 @@ public class RestaurantController {
 
     @Autowired
     public RestaurantController(RestaurantService restaurantService) {
+
         this.restaurantService = restaurantService;
     }
 
@@ -30,6 +31,7 @@ public class RestaurantController {
     // 모든 음식점 조회 API
     @GetMapping("/restaurants")
     public List<Restaurant> getAllRestaurants() {
+
         return restaurantService.getAllRestaurants();
     }
 

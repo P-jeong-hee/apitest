@@ -1,4 +1,4 @@
-package com.sparta.apitest.service;
+package com.sparta.apitest.valid;
 
 import com.sparta.apitest.dto.RestaurantRequestDto;
 
