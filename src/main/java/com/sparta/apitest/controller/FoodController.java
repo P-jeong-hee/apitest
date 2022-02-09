@@ -19,8 +19,8 @@ public class FoodController {
 
     // 음식 등록 API
     @PostMapping("/restaurant/{restaurantId}/food/register")
-    public void registerFood(@RequestBody List<FoodRequestDto> foodRequestDtos, @PathVariable Long restaurantId) {
-        foodService.registerFood(foodRequestDtos,restaurantId);
+    public void registerFood(@RequestBody List<FoodRequestDto> foodRequestDto, @PathVariable Long restaurantId) {
+        foodService.registerFood(foodRequestDto,restaurantId);
     }
 
     // 메뉴판 조회 API
