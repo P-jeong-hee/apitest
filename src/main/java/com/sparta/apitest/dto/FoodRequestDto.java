@@ -19,9 +19,6 @@ public class FoodRequestDto {
     private int price;
 
     public FoodRequestDto(Food food) {
-    }
-
-    public void FoodRequestDto(Food food) {
         this.id = food.getId();
         this.name = food.getName();
         this.price = food.getPrice();
