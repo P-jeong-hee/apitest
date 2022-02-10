@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
-@Builder
-public class FoodOrderRequestDto {
+public class FoodOrderDto {
     Long id;
     int quantity;
 }
